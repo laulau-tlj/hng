@@ -7,9 +7,10 @@ export const StyledButton = props => {
         padding: 0.2rem;
         border-radius: 30px;
         text-align: center;
+        color: #606060; 
     `;
 
     return (
-        <Button>{props.children}</Button>
+        <Button onClick={props.onClick}>{props.children}</Button>
     );
 };

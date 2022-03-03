@@ -14,6 +14,8 @@ import { StyledButton } from "../../component/button";
 const LoginContainer = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    
 `;
 
 const Login = () => {
