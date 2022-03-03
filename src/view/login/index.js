@@ -31,8 +31,6 @@ const Login = () => {
         []
     );
 
-    console.log("e", email)
-
     return (
         <Container>
             <LoginContainer>

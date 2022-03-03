@@ -24,8 +24,6 @@ const Select = styled.select`
 `;
 
 const QuestionCard = props => {
-    const [data, setData] = useState([props.choice]);
-
     return (
         <QuestionContainer>
             <Label>{props.label}</Label>
