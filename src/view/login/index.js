@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+// FIREBASE CONNECTION
 import { onSnapshot, collection } from "firebase/firestore";
 import db from "../../firebase-config";
+// STYLED-COMPONENTS
+import { Container } from "../../component/container";
 
 const Login = () => {
     const [data, setData] = useState(null);
@@ -14,9 +17,9 @@ const Login = () => {
     );
 
     return (
-        <div>
-            Login
-        </div>
+        <Container>
+            Title
+        </Container>
     );
 };
 
