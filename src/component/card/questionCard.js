@@ -1,3 +1,4 @@
+import { useState } from "react";
 // DEPENDENCIES IMPORTATIONS
 import styled from "styled-components";
 // STYLED-COMPONENTS 
@@ -23,11 +24,13 @@ const Select = styled.select`
 `;
 
 const QuestionCard = props => {
+    const [data, setData] = useState([props.choice]);
+
     return (
         <QuestionContainer>
             <Label>{props.label}</Label>
             <Space>
-                <Select onChange={e => props.setChoice(e.target.value)}>
+                <Select onChange={e => { props.setChoice ? props.setChoice(e.target.value) : props.setSecondChoice(e.target.value) }}>
                     {
                         props.options.map(option => (
                             <option key={option}>{option}</option>
@@ -35,7 +38,7 @@ const QuestionCard = props => {
                     }
                 </Select>
             </Space>
-        </QuestionContainer>
+        </QuestionContainer >
     );
 };
 

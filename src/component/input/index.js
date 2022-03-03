@@ -13,7 +13,6 @@ export const StyledInput = props => {
     return (
         <Input
             type={props.type}
-            placeholder={props.placeholder}
-            onChange={props.onChange} />
+            placeholder={props.placeholder} />
     );
 };

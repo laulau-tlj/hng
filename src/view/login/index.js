@@ -31,6 +31,8 @@ const Login = () => {
         []
     );
 
+    console.log("e", email)
+
     return (
         <Container>
             <LoginContainer>
@@ -38,7 +40,8 @@ const Login = () => {
                 <Space>
                     <StyledInput
                         type="text"
-                        placeholder="email" />
+                        placeholder="email"
+                        onChange={e => setEmail(e.target.value)} />
                 </Space>
                 <Space>
                     <StyledInput

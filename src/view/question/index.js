@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+// CONTEXT IMPORTATION
+import { ResponseContext } from "../../context/ResponseContext";
+// DEPENDENCIES
+import { useNavigate } from "react-router-dom";
 // STYLED-COMPONENTS
 import { Container } from "../../component/container";
 // COMPONENTS IMPORTATIONS
@@ -6,17 +10,20 @@ import QuestionCard from "../../component/card/questionCard";
 
 const Question = () => {
     const [firstQuestion, setFirstQuestion] = useState(true);
-    const [value, setValue] = useState("");
     const [choice, setChoice] = useState("");
+    const [secondChoice, setSecondChoice] = useState("");
     const [activeSwitch, setActiveSwitch] = useState(false);
+    const { response, setResponse } = useContext(ResponseContext);
+    const navigate = useNavigate();
 
     const restaurantChoice = () => {
         return (
             <div>
                 <QuestionCard
                     label="Que souhaitez-vous manger ?"
-                    options={["Americain", "Asiatique", "Europeen", "Latino"]} />
-                <button>Next</button>
+                    options={["Americain", "Asiatique", "Europeen", "Latino"]}
+                    setSecondChoice={setSecondChoice} />
+                <button onClick={handleSave}>Next</button>
             </div>
         );
     };
@@ -26,8 +33,9 @@ const Question = () => {
             <div>
                 <QuestionCard
                     label="Que souhaitez-vous visiter ?"
-                    options={["Moderne", "Classique", "Atypique"]} />
-                <button>Next</button>
+                    options={["Moderne", "Classique", "Atypique"]}
+                    setSecondChoice={setSecondChoice} />
+                <button onClick={handleSave}>Next</button>
             </div>
         );
     };
@@ -37,8 +45,9 @@ const Question = () => {
             <div>
                 <QuestionCard
                     label="Que souhaitez-vous boire ?"
-                    options={["Cocktaaiiiiils", "Bière", "Je bois pas... soft :)"]} />
-                <button>Next</button>
+                    options={["Cocktaaiiiiils", "Bière", "Je bois pas... soft :)"]}
+                    setSecondChoice={setSecondChoice} />
+                <button id="id" onClick={handleSave}>Next</button>
             </div>
         );
     };
@@ -48,8 +57,9 @@ const Question = () => {
             <div>
                 <QuestionCard
                     label="Que souhaitez-vous boire ?"
-                    options={["1 étoile", "2 étoiles", "3 étoiles et plus"]} />
-                <button>Next</button>
+                    options={["1 étoile", "2 étoiles", "3 étoiles et plus"]}
+                    setSecondChoice={setSecondChoice} />
+                <button onClick={handleSave} s>Next</button>
             </div>
         );
     };
@@ -68,13 +78,20 @@ const Question = () => {
             case "J'ai besoin d'un logement": {
                 return hotelChoice();
             }
-            default: console.log("error")
+            default: console.log(choice)
         };
     };
 
-    const handleChange = () => {
+    const handleChange = async () => {
         setActiveSwitch(true);
         setFirstQuestion(false);
+        await setResponse(choice);
+
+    };
+
+    const handleSave = async () => {
+        setResponse([response, secondChoice]);
+        navigate("/home");
     };
 
     return (

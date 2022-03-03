@@ -3,11 +3,13 @@ import { useState, createContext } from "react";
 export const ResponseContext = createContext();
 
 const ResponseProvider = props => {
-    const [response, setResponse] = useState(null);
+    const [response, setResponse] = useState();
     const value = {
-        response, 
+        response,
         setResponse,
     };
+
+    console.log("response", response)
 
     return (
         <ResponseContext.Provider value={value}>
