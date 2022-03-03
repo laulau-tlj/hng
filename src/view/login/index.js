@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
 // FIREBASE CONNECTION
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { onSnapshot, collection } from "firebase/firestore";
 import db from "../../firebase-config";
 // DEPENDENCIES IMPORTATION
@@ -17,9 +19,23 @@ const LoginContainer = styled.div`
 `;
 
 const Login = () => {
+    const navigate = useNavigate()
+    const auth = getAuth();
     const [data, setData] = useState(null);
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
+    const signInUser = () => {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+         // Signed in 
+
+        // const user = userCredential.user;
+        navigate('/home')
+         // ...
+        }).catch((error) => {
+          console.log(error.message)
+        });
+    }
 
     useEffect(
         () =>
@@ -34,19 +50,26 @@ const Login = () => {
             <LoginContainer>
                 <Image source="/logo.png" alt="logo" />
                 <Space>
-                    <StyledInput
+                    <input
                         type="text"
-                        placeholder="email" />
+                        placeholder="email"
+                        onChange={(e) => {
+                          setEmail(e.target.value)
+                        }} />
                 </Space>
                 <Space>
-                    <StyledInput
+                    <input
                         type="password"
-                        placeholder="password" />
+                        placeholder="password"
+                         onChange={(e) => {
+                          setPassword(e.target.value)
+                        }} />
                 </Space>
                 <Space>
-                    <StyledButton>Login</StyledButton>
+                    <button onClick={signInUser}>Login</button>
                 </Space>
             </LoginContainer>
+            {email} | {password}
         </Container>
     );
 };

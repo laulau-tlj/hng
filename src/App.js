@@ -7,6 +7,10 @@ import Favorite from "./view/favorite";
 import Home from "./view/home";
 import Question from "./view/question";
 
+
+
+
+
 const App = () => {
   return (
     <BrowserRouter>

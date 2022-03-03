@@ -14,6 +14,6 @@ export const StyledInput = props => {
         <Input
             type={props.type}
             placeholder={props.placeholder}
-            onChange={props.onChange} />
+            onChange={() => props.setEmail} />
     );
 };
