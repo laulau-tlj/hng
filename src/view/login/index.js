@@ -2,11 +2,24 @@ import { useState, useEffect } from "react";
 // FIREBASE CONNECTION
 import { onSnapshot, collection } from "firebase/firestore";
 import db from "../../firebase-config";
+// DEPENDENCIES IMPORTATION
+import styled from "styled-components";
 // STYLED-COMPONENTS
 import { Container } from "../../component/container";
+import { StyledInput } from "../../component/input";
+import { Image } from "../../component/image";
+import { Space } from "../../component/space";
+import { StyledButton } from "../../component/button";
+
+const LoginContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 const Login = () => {
     const [data, setData] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
 
     useEffect(
         () =>
@@ -18,7 +31,22 @@ const Login = () => {
 
     return (
         <Container>
-            Title
+            <LoginContainer>
+                <Image source="/logo.png" alt="logo" />
+                <Space>
+                    <StyledInput
+                        type="text"
+                        placeholder="email" />
+                </Space>
+                <Space>
+                    <StyledInput
+                        type="password"
+                        placeholder="password" />
+                </Space>
+                <Space>
+                    <StyledButton>Login</StyledButton>
+                </Space>
+            </LoginContainer>
         </Container>
     );
 };
