@@ -23,12 +23,11 @@ const Select = styled.select`
 `;
 
 const QuestionCard = props => {
-    console.log(props.options)
     return (
         <QuestionContainer>
             <Label>{props.label}</Label>
             <Space>
-                <Select>
+                <Select onChange={e => props.setChoice(e.target.value)}>
                     {
                         props.options.map(option => (
                             <option key={option}>{option}</option>
