@@ -15,7 +15,7 @@ const Register = () => {
   const auth = getAuth();
     const createUser = () => {
       createUserWithEmailAndPassword(auth, email, password).then(result => {
-      localStorage.setItem("isAuth", true);
+      // localStorage.setItem("isAuth", true);
       navigate("/home");
         }).catch((error) => {
           console.log(error.message)
@@ -30,7 +30,6 @@ const Register = () => {
             <label htmlFor="Password">Enter your password: </label>
             <input type="password" name="password" onChange={(e) => { setPassword(e.target.value) }}/>
             <button onClick={createUser}>Create Account</button>
-            <div>{email} | {password}</div>
         </div>
     );
 };
