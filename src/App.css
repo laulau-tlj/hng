@@ -9,11 +9,11 @@
 }
 
 .container {
-  background-color: #7dbecb;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(190deg, #5e8b94 40%, rgb(190 212 111) 60%); 
 }
 
 .margin {

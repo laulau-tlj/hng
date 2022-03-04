@@ -18,6 +18,10 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.questionButton:hover {
+  background-color: rgb(190 212 111);
+}
+
 .cardContainer {
   display: flex;
   flex-direction: column;

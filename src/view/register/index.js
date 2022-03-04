@@ -21,7 +21,7 @@ const Register = () => {
     }
 
     return (
-        <div className="create-account">
+        <div className="create-account loginContainer">
             <label htmlFor="Email"> Enter your email address: </label>
             <input type="Email" name="email" onChange={(e) => { setEmail(e.target.value) }}/>
             <label htmlFor="Password">Enter your password: </label>

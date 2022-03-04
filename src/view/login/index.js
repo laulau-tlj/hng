@@ -12,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState(null);
 
   return (
-    <div class="login">
+    <div class="login loginContainer">
       <div className="login-container">
         <div className="login-form">
           <div className="login-img">
@@ -20,7 +20,7 @@ const Login = () => {
           <input className="login-border" type="text" placeholder="email" />
           <input type="password" placeholder="password" />
           <div className="login-button">
-            <button> Login</button>
+            <button className="loginButton" > Login</button>
           </div>
         </div>
       </div>
