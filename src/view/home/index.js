@@ -4,6 +4,7 @@ import db from "../../firebase-config";
 import { ResponseContext } from "../../context/ResponseContext";
 import Card from "../../component/card/card";
 import "../../style/home.modules.css";
+import Navbar from "../../component/navbar"
 
 const Home = () => {
     const [col, setCol] = useState("");
@@ -43,12 +44,15 @@ const Home = () => {
     if (col) { getData() };
 
     return (
-        <div className="homeContainer">
-            <div className="flexCard">
-                {data && data.map(item => (
-                    <Card key={item} item={item} />
-                ))}
-            </div>
+        <div>
+          <Navbar />
+          <div className="homeContainer">
+              <div className="flexCard">
+                  {data && data.map(item => (
+                      <Card key={item} item={item} />
+                  ))}
+              </div>
+          </div>
         </div>
     );
 };

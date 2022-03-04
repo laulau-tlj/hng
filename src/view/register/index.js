@@ -13,7 +13,7 @@ const Register = () => {
     const createUser = () => {
       createUserWithEmailAndPassword(auth, email, password).then(result => {
       // localStorage.setItem("isAuth", true);
-      navigate("/home");
+      navigate("/question");
         }).catch((error) => {
           console.log(error.message)
           // user already exists
@@ -21,13 +21,16 @@ const Register = () => {
     }
 
     return (
-        <div className="create-account">
+
+          <div className="create-account">
             <label htmlFor="Email"> Enter your email address: </label>
             <input type="Email" name="email" onChange={(e) => { setEmail(e.target.value) }}/>
             <label htmlFor="Password">Enter your password: </label>
             <input type="password" name="password" onChange={(e) => { setPassword(e.target.value) }}/>
             <button onClick={createUser}>Create Account</button>
-        </div>
+          </div>
+
+
     );
 };
 

@@ -20,7 +20,7 @@ const Login = () => {
          // Signed in 
          setUser(userCredential.user)
         // const user = userCredential.user;
-        navigate('/home',{ user
+        navigate('/question',{ user
 
         })
          // ...
@@ -37,7 +37,7 @@ const Login = () => {
           const token = credential.accessToken;
           // The signed-in user info.
           const user = result.user;
-          navigate('/home')
+          navigate('/question')
           // ...
         }).catch((error) => {
           // Handle Errors here.
