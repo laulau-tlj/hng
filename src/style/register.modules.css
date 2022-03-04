@@ -1,6 +1,18 @@
-.create-account {
+.register-container {
   background-color: #5e8b94;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-account {
+  background-color: #fff;
+  /* height: 100vh; */
+  height: 350px;
+  width: 300px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,8 +23,8 @@ input {
 }
 
 button {
-  margin: 1rem;
-  background: #1183ca;
+  margin-top: 1.5rem;
+  background: #5e8b94;
   color: #fff;
   border: 0;
   padding: 8px;
@@ -21,7 +33,7 @@ button {
 }
 
 label {
-  color: #fff;
+  /* color: #fff; */
 }
 
 .create-account input {

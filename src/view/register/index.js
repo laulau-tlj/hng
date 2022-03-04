@@ -21,16 +21,15 @@ const Register = () => {
     }
 
     return (
-
-          <div className="create-account">
-            <label htmlFor="Email"> Enter your email address: </label>
-            <input type="Email" name="email" onChange={(e) => { setEmail(e.target.value) }}/>
-            <label htmlFor="Password">Enter your password: </label>
-            <input type="password" name="password" onChange={(e) => { setPassword(e.target.value) }}/>
-            <button onClick={createUser}>Create Account</button>
+          <div className="register-container">
+            <div className="create-account">
+              <label htmlFor="Email"> Enter your email address: </label>
+              <input type="Email" name="email" onChange={(e) => { setEmail(e.target.value) }}/>
+              <label htmlFor="Password">Enter your password: </label>
+              <input type="password" name="password" onChange={(e) => { setPassword(e.target.value) }}/>
+              <button onClick={createUser}>Create Account</button>
+            </div>
           </div>
-
-
     );
 };
 
