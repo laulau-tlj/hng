@@ -4,12 +4,7 @@ import { onSnapshot, collection } from "firebase/firestore";
 import db from "../../firebase-config";
 // DEPENDENCIES IMPORTATION
 import styled from "styled-components";
-// STYLED-COMPONENTS
-import { Container } from "../../component/container";
-import { StyledInput } from "../../component/input";
-import { Image } from "../../component/image";
-import { Space } from "../../component/space";
-import { StyledButton } from "../../component/button";
+import "../../style/login.modules.css";
 
 const LoginContainer = styled.div `
   display: flex;
@@ -29,25 +24,19 @@ const Login = () => {
     );
 
     return (
-        <Container>
-            <LoginContainer>
-                <Image source="/logo.png" alt="logo" />
-                <Space>
-                    <StyledInput
-                        type="text"
-                        placeholder="email" />
-                </Space>
-                <Space>
-                    <StyledInput
-                        type="password"
-                        placeholder="password" />
-                </Space>
-                <Space>
-                    <StyledButton>Login</StyledButton>
-                </Space>
-            </LoginContainer>
-        </Container>
-
+        <div class="login">
+            <div className="login-container">
+                <div className="login-form">
+                    <div className="login-img">
+                        < img src="/logo.png" alt="logo"/></div>
+                    <input className="login-border" type="text" placeholder="email"/>
+                    <input type="password" placeholder="password"/>
+                    <div className="login-button">
+                        < button> Login< /button>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 

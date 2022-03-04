@@ -9,8 +9,9 @@ import { Container } from "../../component/container";
 import { StyledInput } from "../../component/input";
 import { Image } from "../../component/image";
 import { Space } from "../../component/space";
-import { button } from "../../component/button";
+import "../../component/button";
 import { StyledButton } from "../../component/button";
+
 
 const RegisterContainer = styled.div `
     display: flex;
@@ -35,15 +36,12 @@ const Register = () => {
             <RegisterContainer>
                 <Image source="/logo.png" alt="logo" />
                 <Space>
-                    <label>
-                        <i className="fa-light fa-id-badge"></i>
-                    </label>
                     <StyledInput
                         type="text"
                         placeholder="name" />
                 </Space>
                 <Space>
-                    <i className="fa-light fa-envelope"></i>
+
                     <StyledInput
                         type="text"
                         placeholder="email" />
