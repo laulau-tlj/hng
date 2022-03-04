@@ -3,6 +3,7 @@ import { onSnapshot, collection } from "firebase/firestore";
 import db from "../../firebase-config";
 import { ResponseContext } from "../../context/ResponseContext";
 import Card from "../../component/card/card";
+import "../../style/home.modules.css";
 
 const Home = () => {
     const [col, setCol] = useState("");
@@ -41,10 +42,9 @@ const Home = () => {
 
     if (col) { getData() };
 
-
     return (
-        <div>
-            <div>
+        <div className="homeContainer">
+            <div className="flexCard">
                 {data && data.map(item => (
                     <Card key={item} item={item} />
                 ))}

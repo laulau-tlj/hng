@@ -1,0 +1,10 @@
+.homeContainer {
+  height: 100vh;
+}
+
+.flexCard {
+    @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: 33.33% 33.33% 33.33%;
+    }
+}

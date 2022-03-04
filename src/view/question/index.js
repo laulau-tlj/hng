@@ -95,20 +95,15 @@ const Question = () => {
 
     return (
         <div className="container">
-            {
-                firstQuestion &&
+            {firstQuestion &&
                 <div className="questionContainer">
                     <QuestionCard
                         label="Que souhaitez-vous faire ?"
                         options={["J'ai faim", "J'ai envie de visiter", "Allons boire un verre...", "J'ai besoin d'un logement"]}
                         setChoice={setChoice} />
                     <button className="questionButton mt-1" onClick={handleChange}>Next</button>
-                </div>
-            }
-            {
-                activeSwitch && switchCase()
-            }
-
+                </div>}
+            {activeSwitch && switchCase()}
         </div>
     );
 };

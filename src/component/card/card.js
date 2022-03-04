@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import "../../style/card.modules.css";
 
 const Card = props => {
     return (
-        <div>
+        <div className="cardHome">
             <h4>
                 {props.item.name}
             </h4>
