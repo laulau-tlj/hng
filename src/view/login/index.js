@@ -16,41 +16,20 @@ const Login = () => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
 
-    useEffect(
-        () =>
-            onSnapshot(collection(db, "restaurant"), (snapshot) =>
-                setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-            ),
-        []
-    );
-
-    const LoginContainer = styled.div`
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            
-        `;
-
     return (
-        <Container>
-            <LoginContainer>
-                <Image source="/logo.png" alt="logo" />
-                <Space>
-                    <StyledInput
-                        type="text"
-                        placeholder="email"
-                        onChange={e => setEmail(e.target.value)} />
-                </Space>
-                <Space>
-                    <StyledInput
-                        type="password"
-                        placeholder="password" />
-                </Space>
-                <Space>
-                    <StyledButton>Login</StyledButton>
-                </Space>
-            </LoginContainer>
-        </Container>
+        <div>
+            <div>
+                <img source="/logo.png" alt="logo" />
+                <input
+                    type="text"
+                    placeholder="email"
+                    onChange={e => setEmail(e.target.value)} />
+                <input
+                    type="password"
+                    placeholder="password" />
+                <button>Login</button>
+            </div>
+        </div>
     );
 };
 

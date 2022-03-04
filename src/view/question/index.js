@@ -95,7 +95,7 @@ const Question = () => {
     };
 
     return (
-        <Container>
+        <div>
             {
                 firstQuestion &&
                 <div>
@@ -110,7 +110,7 @@ const Question = () => {
                 activeSwitch && switchCase()
             }
 
-        </Container>
+        </div>
     );
 };
 
