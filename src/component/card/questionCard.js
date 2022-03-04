@@ -1,4 +1,3 @@
-import { useState } from "react";
 // DEPENDENCIES IMPORTATIONS
 import styled from "styled-components";
 // STYLED-COMPONENTS 

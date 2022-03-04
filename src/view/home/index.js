@@ -2,76 +2,68 @@ import { useContext, useState, useEffect } from "react";
 import { onSnapshot, collection } from "firebase/firestore";
 import db from "../../firebase-config";
 import { ResponseContext } from "../../context/ResponseContext";
+import Card from "../../component/card/card";
+import styled from "styled-components";
+
 
 const Home = () => {
-    const [col, setCol] = useState(null);
-    const [value, setValue] = useState(null);
+    const [col, setCol] = useState("");
     const [data, setData] = useState(null);
-    const { response } = useContext(ResponseContext)
+    const { response } = useContext(ResponseContext);
 
     useEffect(() => {
         switch (response[0]) {
             case "J'ai faim": {
-                return getRestaurants();
+                return setCol("restaurant");
             }
             case "J'ai envie de visiter": {
-                return getMuseum();
+                return setCol("museum")
             }
             case "Allons boire un verre...": {
-                return getBar();
+                return setCol("bar")
             }
             case "J'ai besoin d'un logement": {
-                return getHotel();
+                return setCol("hotel");
             }
-            default: console.log("error");
+            default: console.log("Error");
         };
     }, []);
 
-    const getRestaurants = () => {
-        setCol("restaurant");
+    const getData = () => {
         if (col) {
-            onSnapshot(collection(db, "restaurant"), (snapshot) => {
+            onSnapshot(collection(db, col), (snapshot) => {
                 setData(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
             });
         };
     };
 
-    const getMuseum = () => {
-        setCol("museum");
-        if (col) {
-            onSnapshot(collection(db, "museum"), (snapshot) => {
-                setData(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-            });
-        };
-    };
 
-    const getBar = () => {
-        setCol("bar");
-        if (col) {
-            onSnapshot(collection(db, "bar"), (snapshot) => {
-                setData(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-            });
-        };
-    };
+    if (!col) { return (<div>Loading...</div>) };
 
-    const getHotel = () => {
-        setCol("hotel");
-        if (col) {
-            onSnapshot(collection(db, "hotel"), (snapshot) => {
-                setData(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-            });
-        };
-    };
+    if (col) { getData() };
 
-    if (!col || !data) { return (<div>Loading...</div>) }
+    const FlexContainer = styled.div`
+        @media (min-width: 768px) {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            flex-direction: unset;
+        }
+    
+        @media (min-width: 1024px) {
+            grid-template-columns: 33.33% 33.33% 33.33%;
+        }
+    `;
 
     return (
         <div>
-            {
-                data.map(item => (
-                    <p key={item.id}>{item.name}</p>
-                ))
-            }
+            <FlexContainer>
+                {
+                    data &&
+                    data.map(item => (
+                        <Card item={item} />
+                    ))
+                }
+            </FlexContainer>
         </div>
     );
 };

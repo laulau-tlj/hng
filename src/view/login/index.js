@@ -11,13 +11,6 @@ import { Image } from "../../component/image";
 import { Space } from "../../component/space";
 import { StyledButton } from "../../component/button";
 
-const LoginContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-`;
-
 const Login = () => {
     const [data, setData] = useState(null);
     const [email, setEmail] = useState(null);
@@ -30,6 +23,13 @@ const Login = () => {
             ),
         []
     );
+
+    const LoginContainer = styled.div`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        `;
 
     return (
         <Container>

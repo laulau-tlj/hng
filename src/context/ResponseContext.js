@@ -8,9 +8,7 @@ const ResponseProvider = props => {
         response,
         setResponse,
     };
-
-    console.log("response", response)
-
+    
     return (
         <ResponseContext.Provider value={value}>
             {props.children}
