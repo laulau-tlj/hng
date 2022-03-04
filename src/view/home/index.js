@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { onSnapshot, collection } from "firebase/firestore";
+import { getStorage, ref } from "firebase/storage";
 import db from "../../firebase-config";
 import { ResponseContext } from "../../context/ResponseContext";
 import Card from "../../component/card/card";
@@ -18,10 +19,10 @@ const Home = () => {
                 return setCol("restaurant");
             }
             case "J'ai envie de visiter": {
-                return setCol("museum")
+                return setCol("Musée")
             }
             case "Allons boire un verre...": {
-                return setCol("bar")
+                return setCol("Bar")
             }
             case "J'ai besoin d'un logement": {
                 return setCol("hotel");
@@ -29,6 +30,7 @@ const Home = () => {
             default: console.log("Error");
         };
     }, []);
+
 
     const getData = () => {
         if (col) {

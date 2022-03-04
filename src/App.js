@@ -11,11 +11,6 @@ import Question from "./view/question";
 // CONTENT IMPORTATIONS
 import ResponseContext from './context/ResponseContext';
 
-
-
-
-
-
 const App = () => {
   return (
     <BrowserRouter>
