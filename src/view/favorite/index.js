@@ -1,8 +1,13 @@
+import Navbar from "../../component/navbar";
+
 const Favorite = () => {
     return (
-        <div>
-            Favorite
-        </div>
+        <>
+            <Navbar />
+            <div>
+                Favorite
+            </div>
+        </>
     );
 };
 

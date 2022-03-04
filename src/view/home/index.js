@@ -4,10 +4,12 @@ import db from "../../firebase-config";
 import { ResponseContext } from "../../context/ResponseContext";
 import Card from "../../component/card/card";
 import "../../style/home.modules.css";
+import { v4 as uuidv4 } from "uuid";
+import Navbar from "../../component/navbar";
 
 const Home = () => {
     const [col, setCol] = useState("");
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     const { response } = useContext(ResponseContext);
 
     useEffect(() => {
@@ -37,19 +39,21 @@ const Home = () => {
 
     };
 
-
     if (!col) { return (<div>Loading...</div>) };
 
     if (col) { getData() };
 
     return (
-        <div className="homeContainer">
-            <div className="flexCard">
-                {data && data.map(item => (
-                    <Card key={item} item={item} />
-                ))}
+        <>
+            <Navbar />
+            <div className="homeContainer">
+                <div className="flexCard">
+                    {data.map(item => (
+                        <Card key={uuidv4()} item={item} />
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

@@ -1,7 +1,7 @@
 const QuestionCard = props => {
     return (
         <div className="cardContainer">
-            <div className="m-1 label">
+            <div className="margin label">
                 <label>{props.label}</label>
             </div>
             <div className="m-1">

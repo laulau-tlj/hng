@@ -3,8 +3,19 @@
 }
 
 .flexCard {
-    @media (min-width: 768px) {
-        display: grid;
-        grid-template-columns: 33.33% 33.33% 33.33%;
-    }
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .flexCard {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .flexCard {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
 }

@@ -22,7 +22,7 @@ const Question = () => {
                     label="Que souhaitez-vous manger ?"
                     options={["Americain", "Asiatique", "Europeen", "Latino"]}
                     setSecondChoice={setSecondChoice} />
-                <button className="m-1 questionButton" onClick={handleSave}>Next</button>
+                <button className="questionButton" onClick={handleSave}>Next</button>
             </div>
         );
     };
@@ -34,7 +34,7 @@ const Question = () => {
                     label="Que souhaitez-vous visiter ?"
                     options={["Moderne", "Classique", "Atypique"]}
                     setSecondChoice={setSecondChoice} />
-                <button className="m-1 questionButton" onClick={handleSave}>Next</button>
+                <button className="questionButton" onClick={handleSave}>Next</button>
             </div>
         );
     };
@@ -46,7 +46,7 @@ const Question = () => {
                     label="Que souhaitez-vous boire ?"
                     options={["Cocktaaiiiiils", "Bière", "Je bois pas... soft :)"]}
                     setSecondChoice={setSecondChoice} />
-                <button className="m-1 questionButton" id="id" onClick={handleSave}>Next</button>
+                <button className="questionButton" id="id" onClick={handleSave}>Next</button>
             </div>
         );
     };
@@ -58,7 +58,7 @@ const Question = () => {
                     label="Où souhaitez-vous loger ?"
                     options={["1 étoile", "2 étoiles", "3 étoiles et plus"]}
                     setSecondChoice={setSecondChoice} />
-                <button className="m-1 questionButton" onClick={handleSave} s>Next</button>
+                <button className="questionButton" onClick={handleSave} s>Next</button>
             </div>
         );
     };

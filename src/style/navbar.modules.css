@@ -1,0 +1,23 @@
+.navbarContainer {
+  background-color: #7dbecb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  padding: 1rem;
+}
+
+.dropdown {
+  background-color: #5e8b94;
+  position: absolute;
+  z-index: 999;
+  text-decoration: none;
+  width: 10rem;
+  padding: 0.5rem;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.space {
+  margin: 0.5rem;
+}

@@ -4,6 +4,10 @@
   box-sizing: 0;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .container {
   background-color: #7dbecb;
   height: 100vh;
@@ -12,7 +16,11 @@
   justify-content: center;
 }
 
-.m-1 {
-  margin-top: 1rem;
+.margin {
   margin-bottom: 1rem;
+}
+
+.m-1 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }

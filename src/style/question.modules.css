@@ -11,7 +11,11 @@
   height: 1.5rem;
   border-radius: 30px;
   border-color: white;
-  color: #7dbecb;
+  color: white;
+  cursor: pointer;
+  background-color: #5e8b94;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .cardContainer {
@@ -20,7 +24,7 @@
 }
 
 .label {
-  color: white;
+  color: rgb(67, 67, 67);
   font-size: 1.5rem;
   align-items: center;
   width: 100%;
@@ -31,6 +35,7 @@
   height: 2rem;
   border-radius: 30px;
   border-color: white;
-  color: #7dbecb;
+  color: #5e8b94;
   text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
