@@ -13,11 +13,6 @@ import { Image } from "../../component/image";
 import { Space } from "../../component/space";
 import { StyledButton } from "../../component/button";
 
-const LoginContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-
 const Login = () => {
     const navigate = useNavigate()
     const auth = getAuth();
@@ -67,43 +62,20 @@ const Login = () => {
          setUser(currentUser);
         });
 
-    useEffect(
-        () =>
-            onSnapshot(collection(db, "restaurant"), (snapshot) =>
-                setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-            ),
-        []
-    );
-
     return (
-        <Container>
-            <LoginContainer>
-                <Image source="/logo.png" alt="logo" />
-                <Space>
-                    <input
-                        type="text"
-                        placeholder="email"
-                        onChange={(e) => {
-                          setEmail(e.target.value)
-                        }} />
-                </Space>
-                <Space>
-                    <input
-                        type="password"
-                        placeholder="password"
-                         onChange={(e) => {
-                          setPassword(e.target.value)
-                        }} />
-                </Space>
-                <Space>
-                    <button onClick={signInUser}>Login</button>
-                </Space>
-            </LoginContainer>
-            <div className="Google">
-              <button onClick={signInWithGoogle}>Sign in with your google account</button>
+        <div>
+            <div>
+                <img source="/logo.png" alt="logo" />
+                <input
+                    type="text"
+                    placeholder="email"
+                    onChange={e => setEmail(e.target.value)} />
+                <input
+                    type="password"
+                    placeholder="password" />
+                <button>Login</button>
             </div>
-        </Container>
-          
+        </div>
     );
 };
 
