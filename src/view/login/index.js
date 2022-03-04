@@ -11,9 +11,9 @@ import { Image } from "../../component/image";
 import { Space } from "../../component/space";
 import { StyledButton } from "../../component/button";
 
-const LoginContainer = styled.div`
-    display: flex;
-    flex-direction: column;
+const LoginContainer = styled.div `
+  display: flex;
+  flex-direction: column;
 `;
 
 const Login = () => {
@@ -23,10 +23,9 @@ const Login = () => {
 
     useEffect(
         () =>
-            onSnapshot(collection(db, "restaurant"), (snapshot) =>
-                setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-            ),
-        []
+        onSnapshot(collection(db, "restaurant"), (snapshot) =>
+            setData(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id })))
+        ), []
     );
 
     return (
@@ -48,6 +47,7 @@ const Login = () => {
                 </Space>
             </LoginContainer>
         </Container>
+
     );
 };
 

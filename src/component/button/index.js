@@ -7,6 +7,10 @@ export const StyledButton = props => {
         padding: 0.2rem;
         border-radius: 30px;
         text-align: center;
+        display: block;
+        margin:auto;
+        color: grey;
+        border-color: rgb(201, 76, 76);
     `;
 
     return (
