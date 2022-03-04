@@ -3,3 +3,16 @@
   margin: 0;
   box-sizing: 0;
 }
+
+.container {
+  background-color: #7dbecb;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.m-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
