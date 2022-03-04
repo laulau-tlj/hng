@@ -4,14 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { onSnapshot, collection } from "firebase/firestore";
 import db from "../../firebase-config";
-// DEPENDENCIES IMPORTATION
-import styled from "styled-components";
-// STYLED-COMPONENTS
-import { Container } from "../../component/container";
-import { StyledInput } from "../../component/input";
-import { Image } from "../../component/image";
-import { Space } from "../../component/space";
-import { StyledButton } from "../../component/button";
+
 
 const Login = () => {
     const navigate = useNavigate()
@@ -72,8 +65,13 @@ const Login = () => {
                     onChange={e => setEmail(e.target.value)} />
                 <input
                     type="password"
-                    placeholder="password" />
-                <button>Login</button>
+                    placeholder="password" 
+                    onChange={e => setPassword(e.target.value)} />
+                <button onClick={signInUser}>Login</button>
+            </div>
+            <div>
+              <p>or you can login with your google account</p>
+              <button onClick={signInWithGoogle}>Sign in with google</button>
             </div>
         </div>
     );
