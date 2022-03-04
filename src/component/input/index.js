@@ -4,4 +4,5 @@ export const StyledInput = props => {
             type={props.type}
             placeholder={props.placeholder} />
     );
+
 };
