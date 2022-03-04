@@ -1,10 +1,7 @@
+import '../../style/register.modules.css'
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {useNavigate} from 'react-router-dom';
-
-
-
-
 
 const Register = () => {
 
@@ -24,7 +21,7 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div className="create-account">
             <label htmlFor="Email"> Enter your email address: </label>
             <input type="Email" name="email" onChange={(e) => { setEmail(e.target.value) }}/>
             <label htmlFor="Password">Enter your password: </label>
