@@ -1,7 +1,4 @@
 import { useContext, useState, useEffect } from "react";
-import { onSnapshot, collection } from "firebase/firestore";
-import { getStorage, ref } from "firebase/storage";
-import db from "../../firebase-config";
 import { ResponseContext } from "../../context/ResponseContext";
 import Card from "../../component/card/card";
 import "../../style/home.modules.css";
@@ -16,22 +13,15 @@ const Home = () => {
     const { response } = useContext(ResponseContext);
 
     useEffect(() => {
-        axios.get(`${server}/${col}`, { withCredentials: true })
-            .then(res => {
-                console.log("result axios", res);
-            });
-    }, [col]);
-
-    useEffect(() => {
         switch (response[0]) {
             case "J'ai faim": {
                 return setCol("restaurant");
             }
             case "J'ai envie de visiter": {
-                return setCol("Musée")
+                return setCol("museum")
             }
             case "Allons boire un verre...": {
-                return setCol("Bar")
+                return setCol("bar")
             }
             case "J'ai besoin d'un logement": {
                 return setCol("hotel");
@@ -40,18 +30,15 @@ const Home = () => {
         };
     }, []);
 
-
-    const getData = () => {
-        if (col) {
-            onSnapshot(collection(db, col), (snapshot) => {
-                setData(snapshot.docs.map(doc => ({ ...doc.data(), type: response[1] })));
+    useEffect(() => {
+        axios.get(`${server}/${col}`, { withCredentials: true })
+            .then(res => {
+                console.log("result axios", res);
+                setData(res.data.data)
             });
-        };
-    };
+    }, [col]);
 
     if (!col) { return (<div>Loading...</div>) };
-
-    if (col) { getData() };
 
     return (
         <>

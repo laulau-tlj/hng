@@ -1,22 +1,16 @@
 import "../../style/card.modules.css";
+import { server } from "../../tool";
 
 const Card = props => {
     return (
         <div className="cardHome">
-            <img src={`/images/${props.item.id}`} alt="12" />
-            <h4>
-                {props.item.name}
-            </h4>
-            <p>
-                {props.item.address}
-            </p>
-            <p>
-                {props.item.price}€
-            </p>
-            <p>
-                {props.item.type ? props.item.type : props.item.star}
-            </p>
-            {props.item.id}
+            <a className="styled-a" href={props.item.link} target="_blank" rel="noreferrer">
+                <h4 className="card-title">{props.item.name}</h4>
+                <img src={`${server}/${props.item.image}`} alt="12" width="100%" height={200} />
+                <p className="card-p">{props.item.address}</p>
+                <p className="card-p">{props.item.price}€</p>
+                <p className="card-p">{props.item.type ? props.item.type : props.item.star}</p>
+                </a>
         </div>
     );
 };

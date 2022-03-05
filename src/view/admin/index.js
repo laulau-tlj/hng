@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { server } from "../../tool";
-import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "../../style/admin.modules.css";
 
@@ -17,8 +16,8 @@ const Admin = () => {
     const [address, setAddress] = useState(null);
     const [price, setPrice] = useState(0);
     const [type, setType] = useState(null);
+    const [link, setLink] = useState(null)
     const [file, setFile] = useState(null);
-    const navigation = useNavigate();
 
     const switchType = () => {
         switch (col) {
@@ -71,7 +70,7 @@ const Admin = () => {
     };
 
     const handlePost = async () => {
-        await axios.post(`${server}/${col.toLowerCase()}`, { name, address, price, type, col }, { withCredentials: true })
+        await axios.post(`${server}/${col.toLowerCase()}`, { name, address, price, type, col, link }, { withCredentials: true })
             .then(res => {
                 if (res.data.status === "success") {
                     setTimeout(() => {
@@ -93,7 +92,7 @@ const Admin = () => {
         };
 
         const res = await axios.patch(`${server}/uploads`, formData, config);
-        if (res.data.status === "success") return window.reload();
+        if (res.data.status === "success") return window.location.reload();
     };
 
     return (
@@ -113,11 +112,12 @@ const Admin = () => {
                             <button className="adminButton" onClick={() => setActiveTab("2")}>Suivant</button>
                         </div>
                         : <div>
-                            <input type="text" placeholder="Nom du lieu" onChange={e => setName(e.target.value)} />
-                            <input type="text" placeholder="Addresse" onChange={e => setAddress(e.target.value)} />
-                            <input type="number" placeholder="Prix moyen" onChange={e => setPrice(e.target.value)} />
+                            <input type="text" placeholder="Name" onChange={e => setName(e.target.value)} />
+                            <input type="text" placeholder="address" onChange={e => setAddress(e.target.value)} />
+                            <input type="number" placeholder="price" onChange={e => setPrice(e.target.value)} />
+                            <input type="text" placeholder="Link" onChange={e => setLink(e.target.value)} />
                             {switchType()}
-                            <input type="file" name="file" placeholder="Photo du lieu" onChange={e => setFile(e.target.files[0])} />
+                            <input type="file" name="file" placeholder="image" onChange={e => setFile(e.target.files[0])} />
                             <button className="adminButton" onClick={handlePost}>Poster</button>
                         </div>
                 }

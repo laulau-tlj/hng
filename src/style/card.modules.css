@@ -1,5 +1,18 @@
 .cardHome {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 0.5rem;
   padding: 1rem;
-  margin: 1rem;
-};
+  cursor: pointer;
+}
+
+.card-title {
+  margin: 0.5rem 0rem 0.5rem 0rem;
+}
+.card-p {
+  margin: 0.5rem 0rem 0.5rem 0rem;
+}
+
+.styled-a {
+  text-decoration: none;
+  color: black;
+}
