@@ -1,34 +1,39 @@
-import '../../style/register.modules.css'
 import React, { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import '../../style/login.modules.css';
+import axios from "axios";
+import { server } from "../../tool";
 
 const Register = () => {
-
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const navigate = useNavigate()
-  const auth = getAuth();
-    const createUser = () => {
-      createUserWithEmailAndPassword(auth, email, password).then(result => {
-      // localStorage.setItem("isAuth", true);
-      navigate("/home");
-        }).catch((error) => {
-          console.log(error.message)
-          // user already exists
-        })
-    }
 
-    return (
-        <div className="create-account loginContainer">
-            <label htmlFor="Email"> Enter your email address: </label>
-            <input type="Email" name="email" onChange={(e) => { setEmail(e.target.value) }}/>
-            <label htmlFor="Password">Enter your password: </label>
-            <input type="password" name="password" onChange={(e) => { setPassword(e.target.value) }}/>
-            <button onClick={createUser}>Create Account</button>
+  const handleRegister = async () => {
+    await axios.post(`${server}/register`, { name, email, password }, { withCredentials: true })
+      .then(res => {
+        if (res.data.status === "success") { navigate("/login") };
+      });
+  };
+
+  return (
+    <div class="login">
+      <div className="login-container">
+        <div className="login-form">
+          <div className="login-img">
+            <img src="/logo.png" alt="logo" className="styled-img" />
+          </div>
+          <input type="text" placeholder="name" onChange={e => setName(e.target.value)} />
+          <input type="text" placeholder="email" onChange={e => setEmail(e.target.value)} />
+          <input type="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
+          <div className="login-button">
+            <button className="loginButton" onClick={handleRegister}>Create account</button>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Register;

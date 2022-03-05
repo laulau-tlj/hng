@@ -32,7 +32,7 @@ const Question = () => {
             <div className="questionContainer">
                 <QuestionCard
                     label="Que souhaitez-vous visiter ?"
-                    options={["Moderne", "Classique", "Atypique"]}
+                    options={["Modern", "Classique", "Atypique"]}
                     setSecondChoice={setSecondChoice} />
                 <button className="questionButton" onClick={handleSave}>Next</button>
             </div>
@@ -85,7 +85,6 @@ const Question = () => {
         setActiveSwitch(true);
         setFirstQuestion(false);
         await setResponse(choice);
-
     };
 
     const handleSave = async () => {

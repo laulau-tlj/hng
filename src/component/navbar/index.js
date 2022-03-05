@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import "../../style/navbar.modules.css"
-// FIREBASE IMPORTATIONS
-import { getAuth, signOut } from "firebase/auth";
+import "../../style/navbar.modules.css";
+import axios from "axios";
+import { server } from "../../tool";
 
 const Navbar = () => {
   const [isShow, setIsShow] = useState(false)
-  const auth = getAuth();
   const navigate = useNavigate();
 
   const dropdown = () => {
@@ -14,7 +13,7 @@ const Navbar = () => {
       <div className="dropdown">
         <ul className="pointer space" onClick={() => navigate("/question")}>New trip</ul>
         <ul className="pointer space" onClick={() => navigate("/favorite")}>Favorites</ul>
-        <ul className="pointer space" onClick={logOutUser}>Logout</ul>
+        <ul className="pointer space" onClick={logout}>Logout</ul>
       </div>
     );
   };
@@ -24,7 +23,7 @@ const Navbar = () => {
       <div className="navbarContainer">
         <img className="pointer" src="/newSearch.png" alt="newSearch icon" onClick={() => navigate("/question")} width={50} height={50} />
         <img className="pointer" src="/favorites.png" alt="favorites icon" onClick={() => navigate("/favorite")} width={40} height={40} />
-        <img className="pointer" src="/logout.png" alt="logout icon" onClick={() => navigate("/favorite")} width={40} height={40} />
+        <img className="pointer" src="/logout.png" alt="logout icon" onClick={logout} width={40} height={40} />
       </div>
     );
   };
@@ -40,14 +39,11 @@ const Navbar = () => {
     );
   };
 
-  const logOutUser = () => {
-    signOut(auth).then(() => {
-      // Sign-out successful.
-      navigate('/');
-    }).catch((error) => {
-      // An error happened.
-      console.log(error.message);
-    });
+  const logout = async () => {
+    await axios.get(`${server}/logout`, { withCredentials: true })
+      .then(res => {
+        if (res.data.status === "success") { navigate("/") };
+      });
   };
 
   return (

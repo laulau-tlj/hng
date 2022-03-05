@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import "./App.css";
 // DEPENDENCIES IMPORTATIONS
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -8,6 +7,7 @@ import Register from "./view/register";
 import Favorite from "./view/favorite";
 import Home from "./view/home";
 import Question from "./view/question";
+import Admin from "./view/admin";
 // CONTENT IMPORTATIONS
 import ResponseContext from './context/ResponseContext';
 
@@ -21,6 +21,7 @@ const App = () => {
           <Route exact path="/favorite" element={<Favorite />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/question" element={<Question />} />
+          <Route exact path="/admin" element={<Admin />} />
         </Routes>
       </ResponseContext>
     </BrowserRouter>

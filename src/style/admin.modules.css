@@ -1,0 +1,46 @@
+.admin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(190deg, #5e8b94 40%, rgb(190 212 111) 60%);
+}
+
+.form-container {
+  background: #fff;
+  border: none;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+  box-shadow: rgba(1, 1, 0.24, 0.24) 0px 3px 8px;
+  width: 270px;
+}
+
+.selectAdmin {
+  width: 10rem;
+  height: 2rem;
+  border-radius: 30px;
+  color: white;
+  border-color: #5e8b94;
+  background: #5e8b94;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.adminButton {
+  width: 10rem;
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: #5e8b94;
+  margin-top: 1rem;
+  display: flex;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

@@ -7,11 +7,20 @@ import Card from "../../component/card/card";
 import "../../style/home.modules.css";
 import { v4 as uuidv4 } from "uuid";
 import Navbar from "../../component/navbar";
+import axios from "axios";
+import { server } from "../../tool";
 
 const Home = () => {
     const [col, setCol] = useState("");
     const [data, setData] = useState([]);
     const { response } = useContext(ResponseContext);
+
+    useEffect(() => {
+        axios.get(`${server}/${col}`, { withCredentials: true })
+            .then(res => {
+                console.log("result axios", res);
+            });
+    }, [col]);
 
     useEffect(() => {
         switch (response[0]) {
@@ -38,7 +47,6 @@ const Home = () => {
                 setData(snapshot.docs.map(doc => ({ ...doc.data(), type: response[1] })));
             });
         };
-
     };
 
     if (!col) { return (<div>Loading...</div>) };
