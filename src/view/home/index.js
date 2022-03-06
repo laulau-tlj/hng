@@ -6,10 +6,14 @@ import { v4 as uuidv4 } from "uuid";
 import Navbar from "../../component/navbar";
 import axios from "axios";
 import { server } from "../../tool";
+import SearchBar from "../../component/searchBar";
 
 const Home = () => {
     const [col, setCol] = useState("");
     const [data, setData] = useState([]);
+    const [searchData, setSearchData] = useState(null);
+    const [filter, setFilter] = useState(false);
+    const [isFilter, setIsFilter] = useState(false);
     const { response } = useContext(ResponseContext);
 
     useEffect(() => {
@@ -31,12 +35,29 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        axios.get(`${server}/${col}`, { withCredentials: true })
+        axios.get(`${server}/${col}/${response[1]}`, { withCredentials: true })
             .then(res => {
-                console.log("result axios", res);
-                setData(res.data.data)
+                setData(res.data.data);
             });
     }, [col]);
+
+    const handleSetData = async () => {
+        await axios.get(`${server}/${col}`, { withCredentials: true })
+            .then(res => {
+                setData(res.data.data);
+            });
+    };
+
+    const searchText = (e) => {
+        setFilter(e.target.value);
+        setIsFilter(true);
+
+        let dataSearch = data.filter(item => {
+            return Object.keys(item).some(key =>
+                item[key].toString().toLowerCase().includes(filter.toString().toLowerCase()))
+        });
+        setSearchData(dataSearch);
+    };
 
     if (!col) { return (<div>Loading...</div>) };
 
@@ -44,10 +65,22 @@ const Home = () => {
         <>
             <Navbar />
             <div className="homeContainer">
+                <div className="firstFlex">
+                    <SearchBar
+                        placeholder="What are you looking for ?"
+                        value={filter}
+                        onChange={searchText.bind(this)} />
+                    {/* <button className="homeButton" onClick={handleSetData}>See all {col.charAt(0).toUpperCase() + col.slice(1)}</button> */}
+                </div>
                 <div className="flexCard">
-                    {data.map(item => (
-                        <Card key={uuidv4()} item={item} />
-                    ))}
+                    {isFilter ?
+                        searchData.map(item => (
+                            <Card key={uuidv4()} item={item} col={col} />
+                        )) :
+                        data.map(item => (
+                            <Card key={uuidv4()} item={item} col={col} />
+                        ))
+                    }
                 </div>
             </div>
         </>

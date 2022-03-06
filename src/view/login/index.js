@@ -1,19 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "../../style/login.modules.css";
 import axios from "axios";
 import { server } from "../../tool";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const Login = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleConnect = async () => {
     await axios.post(`${server}/login`, { email, password }, { withCredentials: true })
       .then(res => {
+        setUser(res.data.user);
         if (res.data.status === "success") { navigate("/question") };
-      });
+      }); 
   };
 
   return (

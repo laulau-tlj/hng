@@ -5,9 +5,9 @@ import "../../style/admin.modules.css";
 
 const collections = ["Restaurant", "Bar", "Hotel", "Museum"];
 const restaurantType = ["Americain", "Asiatique", "Europeen", "Latino"];
-const museumType = ["Morderne", "Classique", "Atypique"];
-const barType = ["Bar à cocktail", "Bar à bière", "Soft"];
-const hotelType = ["1 étoile", "2 étoiles", "3 étoiles et plus"];
+const museumType = ["Moderne", "Classique", "Atypique"];
+const barType = ["Cocktails", "Biere", "Soft"];
+const hotelType = ["Appartement", "Hotel", "Chambre"];
 
 const Admin = () => {
     const [activeTab, setActiveTab] = useState("1");
@@ -101,7 +101,8 @@ const Admin = () => {
             <div className="form-container">
                 {
                     activeTab === "1" ?
-                        <div>
+                        <div className="adminFlex">
+                            <img src="/logo.png" alt="logo" width={200} height={200} />
                             <select className="selectAdmin" onChange={e => setCol(e.target.value)}>
                                 {
                                     collections.map(col => (
@@ -109,11 +110,12 @@ const Admin = () => {
                                     ))
                                 }
                             </select>
-                            <button className="adminButton" onClick={() => setActiveTab("2")}>Suivant</button>
+                            <button className="adminButton" onClick={() => setActiveTab("2")}>Next</button>
+                            <a href="/" className="styled-a">Access to the website</a>
                         </div>
                         : <div>
                             <input type="text" placeholder="Name" onChange={e => setName(e.target.value)} />
-                            <input type="text" placeholder="address" onChange={e => setAddress(e.target.value)} />
+                            <input type="text" placeholder="Address" onChange={e => setAddress(e.target.value)} />
                             <input type="number" placeholder="price" onChange={e => setPrice(e.target.value)} />
                             <input type="text" placeholder="Link" onChange={e => setLink(e.target.value)} />
                             {switchType()}

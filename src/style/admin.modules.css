@@ -28,6 +28,7 @@
   background: #5e8b94;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 1rem;
 }
 
 .adminButton {
@@ -43,4 +44,18 @@
   display: flex;
   color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.adminFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.styled-a {
+  font-size: 0.7rem;
+  margin-top: 2rem;
+  color: #30494e;
+  text-decoration: underline;
 }

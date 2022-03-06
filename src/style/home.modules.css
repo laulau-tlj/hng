@@ -7,6 +7,21 @@
   flex-direction: column;
 }
 
+.homeButton {
+  width: 15rem;
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: white;
+  color: rgb(112, 112, 112);
+  margin-top: 1rem;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 @media (min-width: 768px) {
   .flexCard {
     display: grid;

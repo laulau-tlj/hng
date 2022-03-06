@@ -32,7 +32,7 @@ const Question = () => {
             <div className="questionContainer">
                 <QuestionCard
                     label="Que souhaitez-vous visiter ?"
-                    options={["Modern", "Classique", "Atypique"]}
+                    options={["Moderne", "Classique", "Atypique"]}
                     setSecondChoice={setSecondChoice} />
                 <button className="questionButton" onClick={handleSave}>Next</button>
             </div>
@@ -44,7 +44,7 @@ const Question = () => {
             <div className="questionContainer">
                 <QuestionCard
                     label="Que souhaitez-vous boire ?"
-                    options={["Cocktaaiiiiils", "Bière", "Je bois pas... soft :)"]}
+                    options={["Cocktails", "Biere", "Soft"]}
                     setSecondChoice={setSecondChoice} />
                 <button className="questionButton" id="id" onClick={handleSave}>Next</button>
             </div>
@@ -56,7 +56,7 @@ const Question = () => {
             <div className="questionContainer">
                 <QuestionCard
                     label="Où souhaitez-vous loger ?"
-                    options={["1 étoile", "2 étoiles", "3 étoiles et plus"]}
+                    options={["Hotel", "Appartement", "Chambre"]}
                     setSecondChoice={setSecondChoice} />
                 <button className="questionButton" onClick={handleSave} s>Next</button>
             </div>
