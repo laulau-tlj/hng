@@ -1,9 +1,14 @@
 import "../../style/card.modules.css";
 import { server } from "../../tool";
+import { useNavigate } from "react-router-dom";
 
 const Card = props => {
+    const navigate = useNavigate();
+
     const handleAddFavorite = () => {
+        console.log("inside handle")
         localStorage.setItem("favorites", JSON.stringify(props.item));
+        navigate("/favorite");
     };
 
     return (

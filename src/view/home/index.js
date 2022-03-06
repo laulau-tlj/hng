@@ -22,10 +22,10 @@ const Home = () => {
                 return setCol("restaurant");
             }
             case "J'ai envie de visiter": {
-                return setCol("museum")
+                return setCol("museum");
             }
             case "Allons boire un verre...": {
-                return setCol("bar")
+                return setCol("bar");
             }
             case "J'ai besoin d'un logement": {
                 return setCol("hotel");
@@ -41,12 +41,12 @@ const Home = () => {
             });
     }, [col]);
 
-    const handleSetData = async () => {
+/*     const handleSetData = async () => {
         await axios.get(`${server}/${col}`, { withCredentials: true })
             .then(res => {
                 setData(res.data.data);
             });
-    };
+    }; */
 
     const searchText = (e) => {
         setFilter(e.target.value);

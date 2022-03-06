@@ -16,7 +16,7 @@ const Login = () => {
       .then(res => {
         setUser(res.data.user);
         if (res.data.status === "success") { navigate("/question") };
-      }); 
+      });
   };
 
   return (
@@ -27,6 +27,7 @@ const Login = () => {
             <img src="/logo.png" alt="logo" className="styled-img" /></div>
           <input className="login-border" type="text" placeholder="email" onChange={e => setEmail(e.target.value)} />
           <input type="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
+          <a className="styled-a" href="/register">Don't have an acocunt ? Sign in here</a>
           <div className="login-button">
             <button className="loginButton" onClick={handleConnect}>Login</button>
           </div>

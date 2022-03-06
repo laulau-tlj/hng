@@ -11,9 +11,11 @@ const Register = () => {
   const navigate = useNavigate()
 
   const handleRegister = async () => {
+    console.log("inside")
     await axios.post(`${server}/register`, { name, email, password }, { withCredentials: true })
       .then(res => {
-        if (res.data.status === "success") { navigate("/login") };
+        console.log(res)
+        if (res.data.status === "success") { navigate("/") };
       });
   };
 
@@ -27,6 +29,7 @@ const Register = () => {
           <input type="text" placeholder="name" onChange={e => setName(e.target.value)} />
           <input type="text" placeholder="email" onChange={e => setEmail(e.target.value)} />
           <input type="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
+          <a className="styled-a" href="/">Already have an account ? Log here</a>
           <div className="login-button">
             <button className="loginButton" onClick={handleRegister}>Create account</button>
           </div>

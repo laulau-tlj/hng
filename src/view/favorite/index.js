@@ -3,7 +3,7 @@ import { useState } from "react";
 import Card from "../../component/card/card";
 
 const Favorite = () => {
-    const [favorites, setFavorites] = useState([JSON.parse(localStorage.getItem("favorite"))] || []);
+    const [favorites, setFavorites] = useState([JSON.parse(localStorage.getItem("favorites"))] || []);
 
     if (!favorites) return (<div>Loading...</div>);
 
